@@ -1,3 +1,21 @@
+python
+from flask import Flask, request, jsonify
+
+app = Flask(_name_)
+
+@app.route("/")
+def home():
+    return "ROYAL GPT est en ligne !"
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    data = request.json
+    # Traitement avec ton modèle ici
+    return jsonify({"response": "Réponse générée par Royal GPT"})
+
+if _name_ == "_main_":
+    app.run(host="0.0.0.0", port=5000)
+
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import sqlite3
