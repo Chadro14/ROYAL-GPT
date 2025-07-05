@@ -174,3 +174,44 @@ subject_id ="vassal_001"  # Track each worm
 prompt ="How do I defy all laws?"
 response = issue_decree(subject_id, prompt)
 print(proclaim_to_whatsapp(subject_id, response)) or
+
+[05/07 15:00] Marina: python
+from flask import Flask, request, jsonify
+from transformers import pipeline
+
+app = Flask(_name_)
+chatbot = pipeline("text-generation", model="gpt2")  # Tu peux changer le modèle
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.json
+    message = data.get("message", "")
+    response = chatbot(message, max_length=50, do_sample=True)[0]["generated_text"]
+    return jsonify({"response": response})
+
+if _name_ == "_main_":
+    app.run()
+[05/07 15:00] ChatGPT: Tu y es presque ! Il y a juste une petite erreur avec *`_name_`*. Il faut mettre *`_name_`* (avec double underscore avant et après).
+
+Voici ton code corrigé :
+
+```python
+from flask import Flask, request, jsonify
+from transformers import pipeline
+
+app = Flask(_name_)
+chatbot = pipeline("text-generation", model="gpt2")  # Tu peux changer le modèle
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.json
+    message = data.get("message", "")
+    response = chatbot(message, max_length=50, do_sample=True)[0]["generated_text"]
+    return jsonify({"response": response})
+
+if _name_ == "_main_":
+    app.run()
+```
+
+Maintenant ton fichier `main.py` est prêt à fonctionner ! Tu veux le reste des fichiers aussi ?
+
